@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Обратная связь - Барбершоп "Борода? оу да!"</title>
+    <link rel="stylesheet" href="style.css">
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="index.html">Борода? оу да!</a>
+            <img src="лого.webp" alt="Логотип барбершопа">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="feedback.html" style="color: #e0b354; border-bottom: 2px solid #c9a03d;">Обратная связь</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="feedback-section">
+            <div class="container">
+                <div class="feedback-title">
+                    <h1>✉️ Напишите нам</h1>
+                    <p>Заполни форму — и наши братки свяжутся с тобой!</p>
+                </div>
+
+                <form class="feedback-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Имя <span class="required-star">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="Введи своё имя" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required-star">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Тема обращения</label>
+                        <select id="subject" name="subject">
+                            <option value="strizhka">Запись на стрижку</option>
+                            <option value="boroda">Запись на бороду</option>
+                            <option value="vopros">Общий вопрос</option>
+                            <option value="reklama">Сотрудничество/Реклама</option>
+                            <option value="job">Хочу работать у вас</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Сообщение <span class="required-star">*</span></label>
+                        <textarea id="message" name="message" rows="5" placeholder="Напиши, что хочешь сказать..." required></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn-submit">💈 Отправить сообщение</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <div>
+                <h4>О проекте</h4>
+                <p>Учебная верстка. Тема сайта задается студентом. Все страницы связаны.</p>
+            </div>
+            <div>
+                <h4>Контакты</h4>
+                <p>Email: megaboroda@gmail.com</p>
+                <p>Телефон: +7 (123) 456-78-90</p>
+                <p>Адрес: ул. Мира 23, Северск</p>
+            </div>
+            <div>
+                <h4>Следите за нами</h4>
+                <p>Соцсети: VK, Max, Rutube</p>
+            </div>
+        </div>
+        <div>
+            <p>&copy; 2026 Все права защищены. Учебный проект</p>
+        </div>
+    </footer>
+
+    <script>
+        // Простое уведомление при отправке формы
+        const form = document.querySelector('.feedback-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('💈 Сообщение отправлено! Наши братки свяжутся с тобой в ближайшее время.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
