@@ -1,5 +1,3 @@
-/* Общие стили для всего сайта */
-/* Универсальное правило — все элементы учитывают padding и border в ширине */
 * {
     margin: 0;
     padding: 0;
@@ -9,8 +7,8 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color: #17a4db;           /* тёмно-серый текст */
-    background-color: #ffffff; /* белый фон */
+    color: #ffffff;           /* тёмно-серый текст */
+    background-color: #448186; /* белый фон */
     line-height: 1.5;         /* межстрочный интервал */
     margin: 0;
     padding: 0;
@@ -18,7 +16,7 @@ body {
 /* Заголовки */
 h1 {
     font-size: 36px;
-    color: #222222;
+    color: #ffffff;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -26,7 +24,7 @@ h1 {
 
 h2 {
     font-size: 28px;
-    color: #333333;
+    color: #ffffff;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -34,7 +32,7 @@ h2 {
 
 h3 {
     font-size: 22px;
-    color: #444444;
+    color: #ffffff;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -74,23 +72,29 @@ nav ul li {
     margin-right: 20px;
 }
 
+
 nav ul li a:hover {
     text-decoration: underline;    /* подчёркивание при наведении */
+    color: #f1c40f;                /* ЖЁЛТЫЙ цвет при наведении */
 }
-/* Кнопка */
+
+
+
+/* Кнопка с градиентом */
 .btn, button, .button {
     display: inline-block;
-    background-color: #3498db;     /* голубой фон */
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     color: white;
     padding: 10px 25px;
     border-radius: 5px;            /* закруглённые углы */
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;              /* плавность при наведении */
+    border: none;
 }
 
 .btn:hover, button:hover, .button:hover {
-    background-color: #2980b9;     /* более тёмный при наведении */
+    background: linear-gradient(135deg, #2980b9 0%, #1f6d9e 100%);
     cursor: pointer;
 }
 /* Карточки товаров/услуг */
@@ -119,7 +123,7 @@ nav ul li a:hover {
 .price {
     font-size: 20px;
     font-weight: bold;
-    color: #1fb369;               /* оранжевый цвет цены */
+    color: #63fa0c;               /* оранжевый цвет цены */
     margin: 10px 0;
 }
 .feature-card {
@@ -226,7 +230,7 @@ input:focus, textarea:focus, select:focus {
 }
 .btn, button, .button {
     display: inline-block;
-    background-color: #3498db;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     color: white;
     padding: 12px 30px;        /* увеличили отступы */
     border: none;              /* убираем стандартную рамку у кнопок */
@@ -239,7 +243,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .btn:hover, button:hover, .button:hover {
-    background-color: #2980b9;
+    background: linear-gradient(135deg, #2980b9 0%, #1f6d9e 100%);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 input, textarea, select {
@@ -257,7 +261,7 @@ input:focus, textarea:focus, select:focus {
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);  /* свечение вокруг поля */
     input:focus, textarea:focus, select:focus {
     outline: none;
-    border-color: #e67e22;
+    border-color: #22e62c;
     box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
     background-color: #fffef7;
 }
@@ -305,11 +309,11 @@ section {
 }
 
 .hero .btn {
-    background-color: #e67e22;
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
 }
 
 .hero .btn:hover {
-    background-color: #d35400;
+    background: linear-gradient(135deg, #d35400 0%, #b84300 100%);
 }
 
 }
@@ -350,8 +354,8 @@ nav ul li:first-child a {
 }
 
 /* Последний пункт меню */
-nav ul li:last-child a {
-    color: #f1c40f;
+nav ul li:first-child a {
+    color: #f1cf0f;
 }
 
 /* Для каждого второго пункта (чётного) */
@@ -402,4 +406,47 @@ footer a:active {
 }
 footer {
     background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+}
+nav ul li a.active {
+    color: #f1c40f;        
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #f1c40f;
+}
+header {
+    background-color: #20364d;
+    padding: 15px 20px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header > div > a:first-child {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a.active {
+    color: #f1c40f;        
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #f1c40f;
 }
