@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Главная страница</title>
+    <title>Главная страница - HOSPITAL by CHUYKOV</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div>
-            <link rel="stylesheet" href="style.css">
-            <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130">
-            <a class="logo-name" href="index.html">HOSPITAL by CHUYKOV</a>
-            
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130" alt="Логотип больницы">
+                <span class="logo-name">HOSPITAL by CHUYKOV</span>
+            </a>
             <nav>
                 <ul>
-                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html" class="active">Главная</a></li>
                     <li><a href="catalog.html">Каталог</a></li>
                     <li><a href="contacts.html">Контакты</a></li>
                     <li><a href="feedback.html">Обратная связь</a></li>
@@ -25,35 +25,37 @@
     </header>
 
     <main>
-        <section>
-            <div>
+        <!-- Hero секция -->
+        <section class="hero">
+            <div class="container">
                 <h1>Здоровье важнее всего!</h1>
                 <p>Если чувствуешь себя неважно - не медли и приходи к нам!</p>
-                <a href="catalog.html">Перейти в каталог</a>
+                <a href="catalog.html" class="btn">Перейти в каталог</a>
             </div>
         </section>
 
+        <!-- Почему выбирают нас -->
         <section>
-            <div>
+            <div class="container">
                 <h2>Почему выбирают нас</h2>
-                <div>
-                    <div>
-                        <div></div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i>⭐</i>
                         <h3>Качество</h3>
                         <p>Гарантируем, что пойдёте на поправку.</p>
                     </div>
-                    <div>
-                        <div></div>
+                    <div class="feature-card">
+                        <i>⚡</i>
                         <h3>Быстрота</h3>
                         <p>За час работы один кабинет успевает принимать по 15 человек.</p>
                     </div>
-                    <div>
-                        <div></div>
+                    <div class="feature-card">
+                        <i>💰</i>
                         <h3>Доступно</h3>
                         <p>Цены, которые позволит себе каждый, кому нужна помощь.</p>
                     </div>
-                    <div>
-                        <div></div>
+                    <div class="feature-card">
+                        <i>📞</i>
                         <h3>Поддержка</h3>
                         <p>Обращайтесь в любое время. Оператор всегда на связи</p>
                     </div>
@@ -61,45 +63,38 @@
             </div>
         </section>
 
+        <!-- Популярное в этом месяце -->
         <section>
-            <div>
+            <div class="container">
                 <h2>Популярное в этом месяце</h2>
-                <div>
-                    <div>
-                        <div></div>
-                        <div>
-                            <h3>Приём у Офтальмолога</h3>
-                            <p>Стаж работы 30 лет.</p>
-                            <div>от 2000 ₽</div>
-                            <img src="офтальмолог2.jpg" alt="Приём у Офтальмолога" width="500" height="300">
-                        </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div class="product-card">
+                        <div class="card-img">👁️</div>
+                        <h3>Приём у Офтальмолога</h3>
+                        <p>Стаж работы 30 лет.</p>
+                        <img src="офтальмолог2.jpg" alt="Приём у Офтальмолога" style="width: 100%; border-radius: 15px; margin-top: 15px;">
+                        <div class="price">от 2000 ₽</div>
                     </div>
-                    <div>
-                        <div></div>
-                        <div>
-                            <h3>Сдача крови</h3>
-                            <p>Тест на заболивания крови и её анализ.</p>
-                            <div>1500 ₽</div>
-                            <img src="кровка.jpg" alt="Сдача крови" width="700" height="300">
-                        </div>
+                    <div class="product-card">
+                        <div class="card-img">🩸</div>
+                        <h3>Сдача крови</h3>
+                        <p>Тест на заболевания крови и её анализ.</p>
+                        <img src="кровка.jpg" alt="Сдача крови" style="width: 100%; border-radius: 15px; margin-top: 15px;">
+                        <div class="price">1500 ₽</div>
                     </div>
-                    <div>
-                        <div></div>
-                        <div>
-                            <h3>Обследование всего тела</h3>
-                            <p>Полный анализ на все заболевания и риски будущих заблеваний</p>
-                            <div>17500 ₽</div>
-                            <img src="всё тело.jpg" alt="Обследование всего тела" width="500" height="300">
-                        </div>
+                    <div class="product-card">
+                        <div class="card-img">🔬</div>
+                        <h3>Обследование всего тела</h3>
+                        <p>Полный анализ на все заболевания и риски будущих заболеваний</p>
+                        <img src="всё тело.jpg" alt="Обследование всего тела" style="width: 100%; border-radius: 15px; margin-top: 15px;">
+                        <div class="price">17500 ₽</div>
                     </div>
-                    <div>
-                        <div></div>
-                        <div>
-                            <h3>Запись на кланоскопию</h3>
-                            <p>это эндоскопическое исследование внутренней поверхности толстой кишки с помощью специального прибора — колоноскопа.</p>
-                            <div>5900 ₽</div>
-                            <img src="клоноскопия.jpg" alt="Запись на кланоскопию">
-                        </div>
+                    <div class="product-card">
+                        <div class="card-img">🩺</div>
+                        <h3>Запись на колоноскопию</h3>
+                        <p>Эндоскопическое исследование внутренней поверхности толстой кишки.</p>
+                        <img src="клоноскопия.jpg" alt="Запись на колоноскопию" style="width: 100%; border-radius: 15px; margin-top: 15px;">
+                        <div class="price">5900 ₽</div>
                     </div>
                 </div>
             </div>
@@ -107,23 +102,23 @@
     </main>
 
     <footer>
-        <div>
-            <div>
+        <div class="container">
+            <div class="footer-col">
                 <h4>О проекте</h4>
                 <p>Учебная верстка. Тема сайта задается студентом. Все страницы связаны.</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Контакты</h4>
                 <p>Email: megaboroda@gmail.com</p>
                 <p>Телефон: +7 (123) 456-78-90</p>
                 <p>Адрес: ул. Мира 23, Северск</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Следите за нами</h4>
                 <p>Соцсети: VK, Max, Rutube</p>
             </div>
         </div>
-        <div>
+        <div class="copyright">
             <p>&copy; 2026 Все права защищены. Учебный проект</p>
         </div>
     </footer>

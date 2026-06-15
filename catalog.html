@@ -1,21 +1,22 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Каталог услуг - Больница</title>
+    <title>Каталог услуг - HOSPITAL by CHUYKOV</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div>
-            <link rel="stylesheet" href="style.css">
-            <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130">
-            <a class="logo-name" href="index.html">HOSPITAL by CHUYKOV</a>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130" alt="Логотип больницы">
+                <span class="logo-name">HOSPITAL by CHUYKOV</span>
+            </a>
             <nav>
                 <ul>
                     <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="catalog.html" class="active">Каталог</a></li>
                     <li><a href="contacts.html">Контакты</a></li>
                     <li><a href="feedback.html">Обратная связь</a></li>
                 </ul>
@@ -24,95 +25,75 @@
     </header>
 
     <main>
-        <!-- Заголовок страницы каталога -->
         <section>
-            <div>
+            <div class="container">
                 <h1>Наши услуги</h1>
-                <p>Профессиональная помощь и забота о вашем здоровье</p>
+                <p style="text-align: center; font-size: 18px;">Профессиональная помощь и забота о вашем здоровье</p>
             </div>
         </section>
 
-        <!-- Сетка карточек каталога -->
         <section>
-            <div>
+            <div class="container">
                 <h2>Полный список медицинских услуг</h2>
-                <div class="catalog-grid">
-                    <!-- Карточка 1 -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="офтальмолог2.jpg" alt="Приём офтальмолога" width="500" height="300">
-                        </div>
-                        <div class="card-content">
-                            <h3>Приём у Офтальмолога</h3>
-                            <p>Полная диагностика зрения, проверка глазного дна, подбор очков и линз. Стаж врача — более 30 лет.</p>
-                            <div class="price">от 2 000 ₽</div>
-                            <a href="#" class="btn">Записаться</a>
-                        </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                    
+                    <div class="product-card">
+                        <div class="card-img">👁️</div>
+                        <h3>Приём у Офтальмолога</h3>
+                        <p>Полная диагностика зрения, проверка глазного дна, подбор очков и линз. Стаж врача — более 30 лет.</p>
+                        <img src="офтальмолог2.jpg" alt="Приём офтальмолога" style="width: 100%; border-radius: 15px; margin: 15px 0;">
+                        <div class="price">от 2 000 ₽</div>
+                        <a href="#" class="btn">Записаться</a>
                     </div>
 
-                    <!-- Карточка 2 -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="кровка.jpg" alt="Сдача крови" width="700" height="300">
-                        </div>
-                        <div class="card-content">
-                            <h3>Лабораторный анализ крови</h3>
-                            <p>Общий, биохимический, гормональный анализ. Быстрые и точные результаты. Подготовка за 1 день.</p>
-                            <div class="price">1 500 ₽</div>
-                            <a href="#" class="btn">Записаться</a>
-                        </div>
+                    
+                    <div class="product-card">
+                        <div class="card-img">🩸</div>
+                        <h3>Лабораторный анализ крови</h3>
+                        <p>Общий, биохимический, гормональный анализ. Быстрые и точные результаты.</p>
+                        <img src="кровка.jpg" alt="Сдача крови" style="width: 100%; border-radius: 15px; margin: 15px 0;">
+                        <div class="price">1 500 ₽</div>
+                        <a href="#" class="btn">Записаться</a>
                     </div>
 
-                    <!-- Карточка 3 -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="всё тело.jpg" alt="Чекап организма" width="500" height="300">
-                        </div>
-                        <div class="card-content">
-                            <h3>Комплексное обследование тела</h3>
-                            <p>Полный чекап: УЗИ, ЭКГ, анализы и консультации узких специалистов. Выявление скрытых рисков.</p>
-                            <div class="price">17 500 ₽</div>
-                            <a href="#" class="btn">Записаться</a>
-                        </div>
+                    
+                    <div class="product-card">
+                        <div class="card-img">🔬</div>
+                        <h3>Комплексное обследование тела</h3>
+                        <p>Полный чекап: УЗИ, ЭКГ, анализы и консультации узких специалистов.</p>
+                        <img src="всё тело.jpg" alt="Чекап организма" style="width: 100%; border-radius: 15px; margin: 15px 0;">
+                        <div class="price">17 500 ₽</div>
+                        <a href="#" class="btn">Записаться</a>
                     </div>
 
-                    <!-- Карточка 4 -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="клоноскопия.jpg" alt="Колоноскопия">
-                        </div>
-                        <div class="card-content">
-                            <h3>Колоноскопия</h3>
-                            <p>Эндоскопическое исследование толстой кишки. Безболезненно под седацией. Высокая точность диагностики.</p>
-                            <div class="price">5 900 ₽</div>
-                            <a href="#" class="btn">Записаться</a>
-                        </div>
+                   
+                    <div class="product-card">
+                        <div class="card-img">🩺</div>
+                        <h3>Колоноскопия</h3>
+                        <p>Эндоскопическое исследование толстой кишки. Безболезненно под седацией.</p>
+                        <img src="клоноскопия.jpg" alt="Колоноскопия" style="width: 100%; border-radius: 15px; margin: 15px 0;">
+                        <div class="price">5 900 ₽</div>
+                        <a href="#" class="btn">Записаться</a>
                     </div>
 
-                    <!-- Карточка 5 (добавленная) -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="кардиолог.jpg" alt="Консультация кардиолога" width="500" height="300">
-                        </div>
-                        <div class="card-content">
-                            <h3>Приём кардиолога</h3>
-                            <p>ЭКГ, холтеровское мониторирование, контроль давления и профилактика сердечно-сосудистых заболеваний.</p>
-                            <div class="price">2 500 ₽</div>
-                            <a href="#" class="btn">Записаться</a>
-                        </div>
+                    
+                    <div class="product-card">
+                        <div class="card-img">❤️</div>
+                        <h3>Приём кардиолога</h3>
+                        <p>ЭКГ, холтеровское мониторирование, контроль давления и профилактика заболеваний.</p>
+                        <img src="кардиолог.jpg" alt="Консультация кардиолога" style="width: 100%; border-radius: 15px; margin: 15px 0;">
+                        <div class="price">2 500 ₽</div>
+                        <a href="#" class="btn">Записаться</a>
                     </div>
 
-                    <!-- Карточка 6 (добавленная) -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="узи.jpg" alt="УЗИ диагностика" width="500" height="350">
-                        </div>
-                        <div class="card-content">
-                            <h3>УЗИ органов</h3>
-                            <p>Ультразвуковое исследование брюшной полости, щитовидной железы, суставов и мягких тканей.</p>
-                            <div class="price">от 1 800 ₽</div>
-                            <a href="#" class="btn">Записаться</a>
-                        </div>
+                   
+                    <div class="product-card">
+                        <div class="card-img">📊</div>
+                        <h3>УЗИ органов</h3>
+                        <p>Ультразвуковое исследование брюшной полости, щитовидной железы, суставов.</p>
+                        <img src="узи.jpg" alt="УЗИ диагностика" style="width: 100%; border-radius: 15px; margin: 15px 0;">
+                        <div class="price">от 1 800 ₽</div>
+                        <a href="#" class="btn">Записаться</a>
                     </div>
                 </div>
             </div>
@@ -120,33 +101,25 @@
     </main>
 
     <footer>
-        <div>
-            <div>
+        <div class="container">
+            <div class="footer-col">
                 <h4>О проекте</h4>
                 <p>Учебная верстка. Тема сайта задается студентом. Все страницы связаны.</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Контакты</h4>
                 <p>Email: megaboroda@gmail.com</p>
                 <p>Телефон: +7 (123) 456-78-90</p>
                 <p>Адрес: ул. Мира 23, Северск</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Следите за нами</h4>
                 <p>Соцсети: VK, Max, Rutube</p>
             </div>
         </div>
-        <div>
+        <div class="copyright">
             <p>&copy; 2026 Все права защищены. Учебный проект</p>
         </div>
     </footer>
 </body>
 </html>
-<nav>
-    <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="catalog.html" class="active">Каталог</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-        <li><a href="feedback.html">Обратная связь</a></li>
-    </ul>
-</nav>

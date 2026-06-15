@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Контакты - HOSPITAL by CHUYKOV</title>
     <link rel="stylesheet" href="style.css">
-    </style>
 </head>
 <body>
     <header>
-        <div>
-            <link rel="stylesheet" href="style.css">
-            <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130">
-            <a class="logo-name" href="index.html">HOSPITAL by CHUYKOV</a>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130" alt="Логотип больницы">
+                <span class="logo-name">HOSPITAL by CHUYKOV</span>
+            </a>
             <nav>
                 <ul>
                     <li><a href="index.html">Главная</a></li>
                     <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="contacts.html" style="color: #e0b354; border-bottom: 2px solid #c9a03d;">Контакты</a></li>
+                    <li><a href="contacts.html" class="active">Контакты</a></li>
                     <li><a href="feedback.html">Обратная связь</a></li>
                 </ul>
             </nav>
@@ -25,53 +25,42 @@
     </header>
 
     <main>
-        <section class="contacts-section">
+        <section>
             <div class="container">
-                <div class="contacts-title">
-                    <h1>📞 Свяжитесь с нами</h1>
-                    <p>Записывайтесь на приём с любой проблемой!</p>
-                </div>
-
-                <div class="contacts-grid">
-                    <div class="contact-card">
-                        <div class="contact-icon">📍</div>
+                <h1>📞 Свяжитесь с нами</h1>
+                <p style="text-align: center; font-size: 18px;">Записывайтесь на приём с любой проблемой!</p>
+                
+                <div class="contacts-info">
+                    <div>
+                        <i>📍</i>
                         <h3>Адрес</h3>
-                        <p>г. Северск, ул. Мира 23<br></p>
+                        <p>г. Северск, ул. Мира 23</p>
                     </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">📞</div>
+                    <div>
+                        <i>📞</i>
                         <h3>Телефон</h3>
-                        <p><a href="tel:+71234567890">+7 (123) 456-78-90</a></p>
+                        <p>+7 (123) 456-78-90</p>
                     </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">✉️</div>
+                    <div>
+                        <i>✉️</i>
                         <h3>Email</h3>
-                        <p><a href="mailto:megaboroda@gmail.com">hospchuy@gmail.com</a></p>
+                        <p>hospchuy@gmail.com</p>
                     </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">🕐</div>
+                    <div>
+                        <i>🕐</i>
                         <h3>Режим работы</h3>
                         <p>Пн–Пт: 09:00 – 21:00<br>Сб–Вс: 10:00 – 20:00</p>
                     </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">🌐</div>
+                    <div>
+                        <i>🌐</i>
                         <h3>Мы в соцсетях</h3>
-                        <div class="social-links">
-                            <a href="#">VK</a>
-                            <a href="#">Max</a>
-                            <a href="#">RuTube</a>
-                        </div>
+                        <p>VK | Max | RuTube</p>
                     </div>
                 </div>
 
-                <!-- Карта Яндекс -->
-                <div class="map-container">
+                <div class="map">
                     <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&source=constructor" 
-                            allowfullscreen>
+                            height="400" allowfullscreen>
                     </iframe>
                 </div>
             </div>
@@ -79,23 +68,23 @@
     </main>
 
     <footer>
-        <div>
-            <div>
+        <div class="container">
+            <div class="footer-col">
                 <h4>О проекте</h4>
                 <p>Учебная верстка. Тема сайта задается студентом. Все страницы связаны.</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Контакты</h4>
                 <p>Email: megaboroda@gmail.com</p>
                 <p>Телефон: +7 (123) 456-78-90</p>
                 <p>Адрес: ул. Мира 23, Северск</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Следите за нами</h4>
                 <p>Соцсети: VK, Max, Rutube</p>
             </div>
         </div>
-        <div>
+        <div class="copyright">
             <p>&copy; 2026 Все права защищены. Учебный проект</p>
         </div>
     </footer>
