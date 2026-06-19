@@ -272,11 +272,30 @@
             margin: 15px 0;
         }
 
-        .price {
+        .product-card p {
+            color: #7f8c8d;
+        }
+
+        /* ========== ВЛОЖЕННАЯ СЕТКА ВНУТРИ КАРТОЧКИ ========== */
+        .product-details {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            margin: 10px 0;
+            gap: 10px;
+        }
+
+        .product-details .label {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .product-details .price {
+            margin: 0;
+            text-align: right;
             font-size: 28px;
             font-weight: bold;
             color: #e67e22;
-            margin: 15px 0;
         }
 
         section {
@@ -348,29 +367,29 @@
         }
 
         /* ========== СОЦСЕТИ В ПОДВАЛЕ — GRID ========== */
-        .social-grid {
+        .social-links {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
         }
 
-        .social-grid a {
+        .social-icon {
             background-color: #3d566e;
-            padding: 10px 12px;
+            padding: 10px;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
             color: #ecf0f1;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
-            transition: all 0.3s ease;
         }
 
-        .social-grid a:hover {
+        .social-icon:hover {
             background: linear-gradient(135deg, #f1c40f, #e67e22);
             color: #2c3e50;
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.05);
             box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
         }
 
@@ -414,12 +433,28 @@
             background: linear-gradient(135deg, #2980b9, #1f6d9e);
         }
 
-        p {
-            color: #ecf0f1;
-        }
+        /* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ========== */
+        @media (max-width: 480px) {
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .product-card p {
-            color: #7f8c8d;
+            .social-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+                white-space: normal;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
         }
     </style>
 </head>
@@ -453,13 +488,16 @@
             <div class="container">
                 <h2>Полный список медицинских услуг</h2>
                 <div class="catalog-grid">
-                    
                     <div class="product-card">
                         <div class="card-img">👁️</div>
                         <h3>Приём у Офтальмолога</h3>
                         <p>Полная диагностика зрения, проверка глазного дна, подбор очков и линз. Стаж врача — более 30 лет.</p>
                         <img src="офтальмолог2.jpg" alt="Приём офтальмолога">
-                        <div class="price">от 2 000 ₽</div>
+                        <!-- ВЛОЖЕННАЯ СЕТКА ВНУТРИ КАРТОЧКИ -->
+                        <div class="product-details">
+                            <span class="label">Цена:</span>
+                            <span class="price">от 2 000 ₽</span>
+                        </div>
                         <a href="#" class="btn">Записаться</a>
                     </div>
 
@@ -468,7 +506,11 @@
                         <h3>Лабораторный анализ крови</h3>
                         <p>Общий, биохимический, гормональный анализ. Быстрые и точные результаты.</p>
                         <img src="кровка.jpg" alt="Сдача крови">
-                        <div class="price">1 500 ₽</div>
+                        <!-- ВЛОЖЕННАЯ СЕТКА ВНУТРИ КАРТОЧКИ -->
+                        <div class="product-details">
+                            <span class="label">Цена:</span>
+                            <span class="price">1 500 ₽</span>
+                        </div>
                         <a href="#" class="btn">Записаться</a>
                     </div>
 
@@ -477,7 +519,11 @@
                         <h3>Комплексное обследование тела</h3>
                         <p>Полный чекап: УЗИ, ЭКГ, анализы и консультации узких специалистов.</p>
                         <img src="всё тело.jpg" alt="Чекап организма">
-                        <div class="price">17 500 ₽</div>
+                        <!-- ВЛОЖЕННАЯ СЕТКА ВНУТРИ КАРТОЧКИ -->
+                        <div class="product-details">
+                            <span class="label">Цена:</span>
+                            <span class="price">17 500 ₽</span>
+                        </div>
                         <a href="#" class="btn">Записаться</a>
                     </div>
 
@@ -486,7 +532,11 @@
                         <h3>Колоноскопия</h3>
                         <p>Эндоскопическое исследование толстой кишки. Безболезненно под седацией.</p>
                         <img src="клоноскопия.jpg" alt="Колоноскопия">
-                        <div class="price">5 900 ₽</div>
+                        <!-- ВЛОЖЕННАЯ СЕТКА ВНУТРИ КАРТОЧКИ -->
+                        <div class="product-details">
+                            <span class="label">Цена:</span>
+                            <span class="price">5 900 ₽</span>
+                        </div>
                         <a href="#" class="btn">Записаться</a>
                     </div>
 
@@ -495,7 +545,11 @@
                         <h3>Приём кардиолога</h3>
                         <p>ЭКГ, холтеровское мониторирование, контроль давления и профилактика заболеваний.</p>
                         <img src="кардиолог.jpg" alt="Консультация кардиолога">
-                        <div class="price">2 500 ₽</div>
+                        <!-- ВЛОЖЕННАЯ СЕТКА ВНУТРИ КАРТОЧКИ -->
+                        <div class="product-details">
+                            <span class="label">Цена:</span>
+                            <span class="price">2 500 ₽</span>
+                        </div>
                         <a href="#" class="btn">Записаться</a>
                     </div>
 
@@ -504,7 +558,11 @@
                         <h3>УЗИ органов</h3>
                         <p>Ультразвуковое исследование брюшной полости, щитовидной железы, суставов.</p>
                         <img src="узи.jpg" alt="УЗИ диагностика">
-                        <div class="price">от 1 800 ₽</div>
+                        <!-- ВЛОЖЕННАЯ СЕТКА ВНУТРИ КАРТОЧКИ -->
+                        <div class="product-details">
+                            <span class="label">Цена:</span>
+                            <span class="price">от 1 800 ₽</span>
+                        </div>
                         <a href="#" class="btn">Записаться</a>
                     </div>
                 </div>
@@ -526,11 +584,11 @@
             </div>
             <div class="footer-col">
                 <h4>Следите за нами</h4>
-                <div class="social-grid">
-                    <a href="#"> VK</a>
-                    <a href="#"> Telegram</a>
-                    <a href="#"> Max</a>
-                    <a href="#"> RuTube</a>
+                <div class="social-links">
+                    <a href="https://vk.com/bebra_snich228" class="social-icon">VK</a>
+                    <a href="t.me/Leshka_Mazafaker" class="social-icon">TG</a>
+                    <a href="#" class="social-icon">Max</a>
+                    <a href="#" class="social-icon">RT</a>
                 </div>
             </div>
         </div>

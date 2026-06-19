@@ -424,7 +424,6 @@ nav ul li a.active {
     }
 }
 
-
 /* ========== ПОПУЛЯРНОЕ НА GRID ========== */
 .popular-grid {
     display: grid;
@@ -565,6 +564,363 @@ textarea {
     min-height: 100px;
 }
 
+/* ========== НОВЫЙ МАКЕТ ГЛАВНОЙ СТРАНИЦЫ ========== */
+.page-layout {
+    display: grid;
+    grid-template-areas:
+        "hero hero"
+        "features features"
+        "popular sidebar"
+        "gallery gallery";
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.hero-section { grid-area: hero; }
+.features-section { grid-area: features; }
+.popular-section { grid-area: popular; }
+.sidebar-section { grid-area: sidebar; }
+.gallery-section { grid-area: gallery; }
+
+/* ========== СТИЛИ ДЛЯ САЙДБАРА ========== */
+.sidebar-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-section h3 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sidebar-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #f1c40f, #e67e22);
+    border-radius: 2px;
+}
+
+.sidebar-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-section ul li {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #ecf0f1, #dfe6e9);
+    border-radius: 12px;
+    color: #2c3e50;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sidebar-section ul li:hover {
+    transform: translateX(5px);
+    background: linear-gradient(135deg, #f1c40f, #e67e22);
+    color: white;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+}
+
+/* ========== ВЛОЖЕННАЯ СЕТКА ВНУТРИ КАРТОЧКИ ========== */
+.product-details {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.product-details .label {
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.product-details .price {
+    margin: 0;
+    text-align: right;
+}
+
+/* ========== СОЦИАЛЬНЫЕ СЕТИ ========== */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    background-color: #3d566e;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.social-icon:hover {
+    background: linear-gradient(135deg, #f1c40f, #e67e22);
+    color: #2c3e50;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+}
+
+/* ========== УЛУЧШЕННЫЙ БЛОК "НАШИ ДОСТИЖЕНИЯ" ========== */
+.achievements {
+    background: linear-gradient(135deg, rgba(26, 37, 47, 0.95) 0%, rgba(44, 62, 80, 0.95) 100%);
+    padding: 60px 0;
+    margin: 50px 0;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievements::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(241, 196, 15, 0.05) 0%, transparent 50%);
+    animation: rotateGlow 20s linear infinite;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.achievements h2 {
+    position: relative;
+    z-index: 1;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.achievement-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.1), rgba(230, 126, 34, 0.05));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.achievement-item:hover::before {
+    opacity: 1;
+}
+
+.achievement-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(241, 196, 15, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.achievement-item .icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.achievement-item:nth-child(2) .icon { animation-delay: 0.5s; }
+.achievement-item:nth-child(3) .icon { animation-delay: 1s; }
+.achievement-item:nth-child(4) .icon { animation-delay: 1.5s; }
+.achievement-item:nth-child(5) .icon { animation-delay: 2s; }
+.achievement-item:nth-child(6) .icon { animation-delay: 2.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.achievement-item .number {
+    display: block;
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f1c40f, #e67e22);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.achievement-item .label {
+    display: block;
+    color: #ecf0f1;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.achievement-item .suffix {
+    font-size: 24px;
+    -webkit-text-fill-color: initial;
+}
+
+/* ========== КОМБИНАЦИЯ GRID + FLEXBOX ========== */
+.gallery-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-card .card-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.gallery-card h4 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.gallery-card p {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.gallery-grid-combo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* ========== БЛОК ОТЗЫВОВ ========== */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.review-item {
+    display: grid;
+    grid-template-areas:
+        "photo name"
+        "photo review"
+        "photo rating";
+    grid-template-columns: 80px 1fr;
+    gap: 10px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.review-photo {
+    grid-area: photo;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.review-name {
+    grid-area: name;
+    font-size: 20px;
+    color: #2c3e50;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.review-text {
+    grid-area: review;
+    color: #7f8c8d;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.review-rating {
+    grid-area: rating;
+    font-size: 22px;
+    color: #f1c40f;
+    letter-spacing: 2px;
+}
+
+/* ========== КАТАЛОГ ========== */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+.product-card p {
+    color: #7f8c8d;
+}
+
 /* ========== ПОДВАЛ ========== */
 footer {
     background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
@@ -628,33 +984,6 @@ footer .container {
     transform: translateX(5px);
 }
 
-/* ========== СОЦСЕТИ В ПОДВАЛЕ — GRID ========== */
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.social-grid a {
-    background-color: #3d566e;
-    padding: 10px 12px;
-    text-align: center;
-    border-radius: 8px;
-    color: #ecf0f1;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.social-grid a:hover {
-    background: linear-gradient(135deg, #f1c40f, #e67e22);
-    color: #2c3e50;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
-}
-
 .copyright {
     text-align: center;
     padding-top: 30px;
@@ -693,4 +1022,108 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #2980b9, #1f6d9e);
+}
+
+/* ========== АДАПТАЦИЯ ДЛЯ ПЛАНШЕТОВ ========== */
+@media (max-width: 768px) {
+    .page-layout {
+        grid-template-areas:
+            "hero"
+            "features"
+            "popular"
+            "sidebar"
+            "gallery";
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-grid-combo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .social-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ========== */
+@media (max-width: 480px) {
+    .gallery-grid-combo {
+        grid-template-columns: 1fr;
+    }
+
+    .review-item {
+        grid-template-areas:
+            "photo name"
+            "review review"
+            "rating rating";
+        grid-template-columns: 60px 1fr;
+        gap: 10px;
+    }
+
+    .review-photo {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .review-name {
+        font-size: 18px;
+    }
+
+    .review-text {
+        font-size: 14px;
+    }
+
+    .review-rating {
+        font-size: 18px;
+    }
+
+    .achievement-item .number {
+        font-size: 32px;
+    }
+
+    .achievement-item .icon {
+        font-size: 36px;
+    }
+
+    .achievements {
+        padding: 40px 15px;
+        border-radius: 20px;
+    }
+
+    .social-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+        white-space: normal;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
 }
