@@ -4,424 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Каталог услуг - HOSPITAL by CHUYKOV</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 16px;
-            color: #ffffff;
-            background: linear-gradient(135deg, #448186 0%, #2c5a60 100%);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h1 {
-            font-size: 42px;
-            color: #ffffff;
-            text-align: center;
-            margin-top: 30px;
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-        }
-
-        .logo-name {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        h2 {
-            font-size: 32px;
-            color: #ffffff;
-            text-align: center;
-            margin-top: 40px;
-            margin-bottom: 25px;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #f1c40f, #e67e22);
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: 24px;
-            color: #2c3e50;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        h4 {
-            font-size: 18px;
-            color: #ecf0f1;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
-            padding: 20px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.02);
-        }
-
-        .logo img {
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s;
-        }
-
-        .logo img:hover {
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo span {
-            font-size: 26px;
-            font-weight: bold;
-            color: white;
-            letter-spacing: 2px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            padding: 8px 16px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f1c40f, #e67e22);
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        nav ul li a:hover::before {
-            width: 70%;
-        }
-
-        nav ul li a:hover {
-            color: #f1c40f;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        nav ul li a.active {
-            color: #f1c40f;
-            background: rgba(241, 196, 15, 0.1);
-        }
-
-        .btn, button, .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            padding: 12px 32px;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before, button::before, .button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s, height 0.5s;
-        }
-
-        .btn:hover::before, button:hover::before, .button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn:hover, button:hover, .button:hover {
-            background: linear-gradient(135deg, #2980b9 0%, #1f6d9e 100%);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn:active, button:active, .button:active {
-            transform: translateY(0);
-        }
-
-        /* ========== СЕТКА КАТАЛОГА НА GRID ========== */
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            display: flex;
-            flex-direction: column;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            height: 100%;
-            padding: 25px;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-card .card-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card .price {
-            margin-top: auto;
-        }
-
-        .card-img {
-            height: 180px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover .card-img {
-            transform: scale(1.02);
-        }
-
-        .product-card img {
-            width: 100%;
-            border-radius: 15px;
-            margin: 15px 0;
-        }
-
-        .price {
-            font-size: 28px;
-            font-weight: bold;
-            color: #e67e22;
-            margin: 15px 0;
-        }
-
-        section {
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-
-        /* ========== ПОДВАЛ ========== */
-        footer {
-            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
-            padding: 50px 0 30px;
-            margin-top: 60px;
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #f1c40f, #e67e22, #3498db);
-        }
-
-        footer .container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 220px;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, #f1c40f, #e67e22);
-            border-radius: 2px;
-        }
-
-        .footer-col p, .footer-col a {
-            color: #bdc3c7;
-            text-decoration: none;
-            line-height: 1.8;
-            transition: all 0.3s ease;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .footer-col a:hover {
-            color: #f1c40f;
-            transform: translateX(5px);
-        }
-
-        /* ========== СОЦСЕТИ В ПОДВАЛЕ — GRID ========== */
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .social-grid a {
-            background-color: #3d566e;
-            padding: 10px 12px;
-            text-align: center;
-            border-radius: 8px;
-            color: #ecf0f1;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .social-grid a:hover {
-            background: linear-gradient(135deg, #f1c40f, #e67e22);
-            color: #2c3e50;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: #95a5a6;
-            width: 100%;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        ::selection {
-            background: #f1c40f;
-            color: #2c3e50;
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #2c3e50;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #2980b9, #1f6d9e);
-        }
-
-        p {
-            color: #ecf0f1;
-        }
-
-        .product-card p {
-            color: #7f8c8d;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -430,8 +13,13 @@
                 <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130" alt="Логотип больницы">
                 <span class="logo-name">HOSPITAL by CHUYKOV</span>
             </a>
+            <button class="burger" id="burgerBtn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav>
-                <ul>
+                <ul id="navMenu">
                     <li><a href="index.html">Главная</a></li>
                     <li><a href="catalog.html" class="active">Каталог</a></li>
                     <li><a href="contacts.html">Контакты</a></li>
@@ -453,59 +41,136 @@
             <div class="container">
                 <h2>Полный список медицинских услуг</h2>
                 <div class="catalog-grid">
-                    
                     <div class="product-card">
                         <div class="card-img">👁️</div>
-                        <h3>Приём у Офтальмолога</h3>
-                        <p>Полная диагностика зрения, проверка глазного дна, подбор очков и линз. Стаж врача — более 30 лет.</p>
-                        <img src="офтальмолог2.jpg" alt="Приём офтальмолога">
-                        <div class="price">от 2 000 ₽</div>
-                        <a href="#" class="btn">Записаться</a>
+                        <div class="card-content">
+                            <h3>Приём у Офтальмолога</h3>
+                            <p>Полная диагностика зрения, проверка глазного дна, подбор очков и линз. Стаж врача — более 30 лет.</p>
+                            <img src="офтальмолог2.jpg" alt="Приём офтальмолога">
+                            <div class="product-details">
+                                <span class="label">Цена:</span>
+                                <span class="price">от 2 000 ₽</span>
+                            </div>
+                            <div class="product-specs">
+                                <h4>Характеристики</h4>
+                                <ul>
+                                    <li><span>Длительность:</span><span>40 мин</span></li>
+                                    <li><span>Врач:</span><span>Высшая категория</span></li>
+                                    <li><span>Оборудование:</span><span>Современное</span></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn">Записаться</a>
+                        </div>
                     </div>
 
                     <div class="product-card">
                         <div class="card-img">🩸</div>
-                        <h3>Лабораторный анализ крови</h3>
-                        <p>Общий, биохимический, гормональный анализ. Быстрые и точные результаты.</p>
-                        <img src="кровка.jpg" alt="Сдача крови">
-                        <div class="price">1 500 ₽</div>
-                        <a href="#" class="btn">Записаться</a>
+                        <div class="card-content">
+                            <h3>Лабораторный анализ крови</h3>
+                            <p>Общий, биохимический, гормональный анализ. Быстрые и точные результаты.</p>
+                            <img src="кровка.jpg" alt="Сдача крови">
+                            <div class="product-details">
+                                <span class="label">Цена:</span>
+                                <span class="price">1 500 ₽</span>
+                            </div>
+                            <div class="product-specs">
+                                <h4>Характеристики</h4>
+                                <ul>
+                                    <li><span>Результат:</span><span>1 день</span></li>
+                                    <li><span>Забор крови:</span><span>Из вены</span></li>
+                                    <li><span>Подготовка:</span><span>Натощак</span></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn">Записаться</a>
+                        </div>
                     </div>
 
                     <div class="product-card">
                         <div class="card-img">🔬</div>
-                        <h3>Комплексное обследование тела</h3>
-                        <p>Полный чекап: УЗИ, ЭКГ, анализы и консультации узких специалистов.</p>
-                        <img src="всё тело.jpg" alt="Чекап организма">
-                        <div class="price">17 500 ₽</div>
-                        <a href="#" class="btn">Записаться</a>
+                        <div class="card-content">
+                            <h3>Комплексное обследование тела</h3>
+                            <p>Полный чекап: УЗИ, ЭКГ, анализы и консультации узких специалистов.</p>
+                            <img src="всё тело.jpg" alt="Чекап организма">
+                            <div class="product-details">
+                                <span class="label">Цена:</span>
+                                <span class="price">17 500 ₽</span>
+                            </div>
+                            <div class="product-specs">
+                                <h4>Характеристики</h4>
+                                <ul>
+                                    <li><span>Длительность:</span><span>4 часа</span></li>
+                                    <li><span>Врачей:</span><span>5 специалистов</span></li>
+                                    <li><span>Анализов:</span><span>20+</span></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn">Записаться</a>
+                        </div>
                     </div>
 
                     <div class="product-card">
                         <div class="card-img">🩺</div>
-                        <h3>Колоноскопия</h3>
-                        <p>Эндоскопическое исследование толстой кишки. Безболезненно под седацией.</p>
-                        <img src="клоноскопия.jpg" alt="Колоноскопия">
-                        <div class="price">5 900 ₽</div>
-                        <a href="#" class="btn">Записаться</a>
+                        <div class="card-content">
+                            <h3>Колоноскопия</h3>
+                            <p>Эндоскопическое исследование толстой кишки. Безболезненно под седацией.</p>
+                            <img src="клоноскопия.jpg" alt="Колоноскопия">
+                            <div class="product-details">
+                                <span class="label">Цена:</span>
+                                <span class="price">5 900 ₽</span>
+                            </div>
+                            <div class="product-specs">
+                                <h4>Характеристики</h4>
+                                <ul>
+                                    <li><span>Длительность:</span><span>30 мин</span></li>
+                                    <li><span>Седация:</span><span>Да</span></li>
+                                    <li><span>Подготовка:</span><span>Специальная диета</span></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn">Записаться</a>
+                        </div>
                     </div>
 
                     <div class="product-card">
                         <div class="card-img">❤️</div>
-                        <h3>Приём кардиолога</h3>
-                        <p>ЭКГ, холтеровское мониторирование, контроль давления и профилактика заболеваний.</p>
-                        <img src="кардиолог.jpg" alt="Консультация кардиолога">
-                        <div class="price">2 500 ₽</div>
-                        <a href="#" class="btn">Записаться</a>
+                        <div class="card-content">
+                            <h3>Приём кардиолога</h3>
+                            <p>ЭКГ, холтеровское мониторирование, контроль давления и профилактика заболеваний.</p>
+                            <img src="кардиолог.jpg" alt="Консультация кардиолога">
+                            <div class="product-details">
+                                <span class="label">Цена:</span>
+                                <span class="price">2 500 ₽</span>
+                            </div>
+                            <div class="product-specs">
+                                <h4>Характеристики</h4>
+                                <ul>
+                                    <li><span>Длительность:</span><span>45 мин</span></li>
+                                    <li><span>ЭКГ:</span><span>Включено</span></li>
+                                    <li><span>Врач:</span><span>Кандидат наук</span></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn">Записаться</a>
+                        </div>
                     </div>
 
                     <div class="product-card">
                         <div class="card-img">📊</div>
-                        <h3>УЗИ органов</h3>
-                        <p>Ультразвуковое исследование брюшной полости, щитовидной железы, суставов.</p>
-                        <img src="узи.jpg" alt="УЗИ диагностика">
-                        <div class="price">от 1 800 ₽</div>
-                        <a href="#" class="btn">Записаться</a>
+                        <div class="card-content">
+                            <h3>УЗИ органов</h3>
+                            <p>Ультразвуковое исследование брюшной полости, щитовидной железы, суставов.</p>
+                            <img src="узи.jpg" alt="УЗИ диагностика">
+                            <div class="product-details">
+                                <span class="label">Цена:</span>
+                                <span class="price">от 1 800 ₽</span>
+                            </div>
+                            <div class="product-specs">
+                                <h4>Характеристики</h4>
+                                <ul>
+                                    <li><span>Длительность:</span><span>20-30 мин</span></li>
+                                    <li><span>Органов:</span><span>До 5 за раз</span></li>
+                                    <li><span>Подготовка:</span><span>За 8 часов голод</span></li>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn">Записаться</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -526,11 +191,11 @@
             </div>
             <div class="footer-col">
                 <h4>Следите за нами</h4>
-                <div class="social-grid">
-                    <a href="#"> VK</a>
-                    <a href="#"> Telegram</a>
-                    <a href="#"> Max</a>
-                    <a href="#"> RuTube</a>
+                <div class="social-links">
+                    <a href="https://vk.com/bebra_snich228" class="social-icon">VK</a>
+                    <a href="t.me/Leshka_Mazafaker" class="social-icon">TG</a>
+                    <a href="#" class="social-icon">Max</a>
+                    <a href="#" class="social-icon">RT</a>
                 </div>
             </div>
         </div>
@@ -538,5 +203,16 @@
             <p>&copy; 2026 Все права защищены. Учебный проект</p>
         </div>
     </footer>
+
+    <script>
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (burgerBtn && navMenu) {
+            burgerBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('open');
+            });
+        }
+    </script>
 </body>
 </html>

@@ -13,8 +13,13 @@
                 <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130" alt="Логотип больницы">
                 <span class="logo-name">HOSPITAL by CHUYKOV</span>
             </a>
+            <button class="burger" id="burgerBtn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav>
-                <ul>
+                <ul id="navMenu">
                     <li><a href="index.html">Главная</a></li>
                     <li><a href="catalog.html">Каталог</a></li>
                     <li><a href="contacts.html">Контакты</a></li>
@@ -35,12 +40,10 @@
                         <label for="name">Имя <span style="color: #e67e22;">*</span></label>
                         <input type="text" id="name" name="name" placeholder="Введи своё имя" required>
                     </div>
-
                     <div>
                         <label for="email">Email <span style="color: #e67e22;">*</span></label>
                         <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
                     </div>
-
                     <div>
                         <label for="subject">Тема обращения</label>
                         <select id="subject" name="subject">
@@ -51,12 +54,10 @@
                             <option value="job">Хочу работать у вас</option>
                         </select>
                     </div>
-
                     <div>
                         <label for="message">Сообщение <span style="color: #e67e22;">*</span></label>
                         <textarea id="message" name="message" rows="5" placeholder="Напиши, что хочешь сказать..." required></textarea>
                     </div>
-
                     <div style="text-align: center;">
                         <button type="submit" class="btn">Отправить сообщение</button>
                     </div>
@@ -79,11 +80,11 @@
             </div>
             <div class="footer-col">
                 <h4>Следите за нами</h4>
-                <div class="social-grid">
-                    <a href="#"> VK</a>
-                    <a href="#"> Telegram</a>
-                    <a href="#"> Max</a>
-                    <a href="#"> RuTube</a>
+                <div class="social-links">
+                    <a href="https://vk.com/bebra_snich228" class="social-icon">VK</a>
+                    <a href="t.me/Leshka_Mazafaker" class="social-icon">TG</a>
+                    <a href="#" class="social-icon">Max</a>
+                    <a href="#" class="social-icon">RT</a>
                 </div>
             </div>
         </div>
@@ -93,6 +94,15 @@
     </footer>
 
     <script>
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (burgerBtn && navMenu) {
+            burgerBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('open');
+            });
+        }
+
         const form = document.querySelector('form');
         if (form) {
             form.addEventListener('submit', function(e) {
