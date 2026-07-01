@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайдер - HOSPITAL by CHUYKOV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Навигация (вставить, активный пункт: Интерактив > Слайдер) -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%); padding: 20px 0;">
+    <div class="container">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130" alt="Логотип больницы" class="me-2">
+            <span class="logo-name">HOSPITAL by CHUYKOV</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Обратная связь</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="interactiveDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Интерактив
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="interactiveDropdown">
+                        <li><a class="dropdown-item" href="slider.html">Слайдер</a></li>
+                        <li><a class="dropdown-item" href="discount.html">Калькулятор</a></li>
+                        <li><a class="dropdown-item" href="flip-card.html">Flip-карточки</a></li>
+                        <li><a class="dropdown-item" href="scroll-gallery.html">Галерея</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Регистрация</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Вход</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Профиль</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="tool-page">
+        <div class="container">
+            <div class="tool-card">
+                <h2>🏥 Фотогалерея больницы</h2>
+                <p class="subtitle">Листайте снимки наших палат, оборудования и врачей</p>
+                <div class="slider-wrapper">
+                    <img src="https://picsum.photos/id/10/800/500" alt="Больница" id="sliderImage">
+                    <button class="slider-btn prev" id="prevBtn">❮</button>
+                    <button class="slider-btn next" id="nextBtn">❯</button>
+                </div>
+                <div class="slider-counter" id="imageCounter">1 / 5</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            'https://i.pinimg.com/originals/ed/ff/18/edff18896030d9281608522a86d6e346.jpg?nii=t', // интерьер
+            'https://runews24.ru/assets/components/phpthumbof/cache/7a62db77315aa46b9e961bde7177732f.6a856ca6cd9ae14d34cf1b572b5935db.jpg', // врач
+            'https://avatars.mds.yandex.net/i?id=8e329b3b81a062635e9dcb15b6cd02c2_l-9739761-images-thumbs&n=13', // оборудование
+            'https://img.freepik.com/premium-photo/beds-hospital-room_946209-3112.jpg', // палата
+            'https://imageio.forbes.com/specials-images/imageserve/6713d6f18e72e33f708b6ba5/0x0.jpg?format=jpg&amp;height=900&amp;width=1600&amp;fit=bounds'  // операционная
+        ];
+        const sliderImage = document.getElementById('sliderImage');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const counter = document.getElementById('imageCounter');
+        let current = 0;
+
+        function updateImage(index) {
+            sliderImage.src = images[index];
+            counter.textContent = `${index+1} / ${images.length}`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            current = (current + 1) % images.length;
+            updateImage(current);
+        });
+        prevBtn.addEventListener('click', () => {
+            current = (current - 1 + images.length) % images.length;
+            updateImage(current);
+        });
+        updateImage(current);
+    </script>
+    <footer>
+        <div class="container">
+            <div class="footer-col">
+                <h4>О проекте</h4>
+                <p>Учебная верстка. Тема сайта задается студентом. Все страницы связаны.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p>Email: megaboroda@gmail.com</p>
+                <p>Телефон: +7 (123) 456-78-90</p>
+                <p>Адрес: ул. Мира 23, Северск</p>
+            </div>
+            <div class="footer-col">
+                <h4>Следите за нами</h4>
+                <div class="social-links">
+                    <a href="https://vk.com/bebra_snich228" class="social-icon">VK</a>
+                    <a href="t.me/Leshka_Mazafaker" class="social-icon">TG</a>
+                    <a href="#" class="social-icon">Max</a>
+                    <a href="#" class="social-icon">RT</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Все права защищены. Учебный проект</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

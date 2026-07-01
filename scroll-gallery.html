@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея - HOSPITAL by CHUYKOV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные локальные стили для галереи */
+        .scroll-gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+            font-weight: 700;
+            font-size: 22px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .scroll-gallery-item:hover {
+            transform: scale(1.03);
+        }
+        .scroll-gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 60%);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+        .scroll-gallery-item .caption {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 12px;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+        .scroll-gallery-item .caption span {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+        /* Анимация появления */
+        .scroll-gallery-item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .scroll-gallery-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 576px) {
+            .scroll-gallery-item { height: 160px; }
+            .scroll-gallery-item .caption { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация (активен Интерактив > Галерея) -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%); padding: 20px 0;">
+        <div class="container">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130" alt="Логотип больницы" class="me-2">
+                <span class="logo-name">HOSPITAL by CHUYKOV</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Обратная связь</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="interactiveDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Интерактив
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="interactiveDropdown">
+                            <li><a class="dropdown-item" href="slider.html">Слайдер</a></li>
+                            <li><a class="dropdown-item" href="discount.html">Калькулятор</a></li>
+                            <li><a class="dropdown-item" href="flip-card.html">Flip-карточки</a></li>
+                            <li><a class="dropdown-item active" href="scroll-gallery.html">Галерея</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="signup.html">Регистрация</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Вход</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Профиль</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <div class="tool-page">
+        <div class="container">
+            <div class="tool-card">
+                <h2>📸 Наши услуги и отделения</h2>
+                <p class="subtitle">Прокрутите вниз, чтобы увидеть фотографии</p>
+                <div class="scroll-gallery-grid" id="galleryGrid">
+                    <!-- Карточка 1: Терапия -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://doktorstolet.ru/upload/iblock/ba4/ba45bcb8b1e60d52b4ccb51bccdcf012.jpg');">
+                        <div class="overlay"></div>
+                        <div class="caption"> Терапевтическое отделение <span>Приём врачей общей практики</span></div>
+                    </div>
+                    <!-- Карточка 2: Кардиология -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://static.tildacdn.com/tild6535-6362-4235-a638-303662306430/photo_2025-10-24_093.jpeg');">
+                        <div class="overlay"></div>
+                        <div class="caption"> Кардиология <span>Диагностика и лечение сердца</span></div>
+                    </div>
+                    <!-- Карточка 3: Лаборатория -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://static.78.ru/images/uploads/media/2024/10/24/1729789980993.jpg');">
+                        <div class="overlay"></div>
+                        <div class="caption"> Лаборатория <span>Анализы крови и диагностика</span></div>
+                    </div>
+                    <!-- Карточка 4: Хирургия -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://www.pirogov-center.ru/etc/2025/pic9766.jpg');">
+                        <div class="overlay"></div>
+                        <div class="caption"> Хирургическое отделение <span>Операции и реабилитация</span></div>
+                    </div>
+                    <!-- Карточка 5: Офтальмология -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://avatars.mds.yandex.net/i?id=cbf5aa364aca08f7b28713b726006d8c_l-5222496-images-thumbs&n=13');">
+                        <div class="overlay"></div>
+                        <div class="caption"> Офтальмология <span>Проверка зрения и коррекция</span></div>
+                    </div>
+                    <!-- Карточка 6: Палаты -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://avatars.mds.yandex.net/i?id=1aba96267a39e8d7e0afbff49d2fc4f3_l-12421635-images-thumbs&n=13');">
+                        <div class="overlay"></div>
+                        <div class="caption"> Комфортные палаты <span>Круглосуточный уход</span></div>
+                    </div>
+                    <!-- Карточка 7: УЗИ -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://avatars.mds.yandex.net/i?id=42991c7ab2d8e3ee556834f2d220c806_l-5234651-images-thumbs&n=13');">
+                        <div class="overlay"></div>
+                        <div class="caption"> УЗИ-диагностика <span>Современное оборудование</span></div>
+                    </div>
+                    <!-- Карточка 8: Неврология -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://as2.ftcdn.net/jpg/12/98/11/29/1000_F_1298112910_No7CZzhBVPQ3PuVX6yyJpg4KPOgHhuF4.jpg');">
+                        <div class="overlay"></div>
+                        <div class="caption"> Неврология <span>Лечение нервной системы</span></div>
+                    </div>
+                    <!-- Карточка 9: Стоматология -->
+                    <div class="scroll-gallery-item" style="background-image: url('https://yandex-images.clstorage.net/ba47jC239/0b7f37-t0/u4FaSWvdMpiTuzojnd3DI_RRWGod6gcBw-0-DjkGyDBwsS1UIPoGOm-xHXykrFn8yycwiAA1WO5UqtZx6LOaWfvJW0xawC79_v4ues39zzf8JC1mWZtvELeEN34JSvFUUeUFvNR6mrfaQJCdfVTxgNtOKbz00FG7keO2adDidniTedbxZ_EzcAcf5w_hFVcTwOB49tVv2zQfZRfq7d91PbhwYRiA3kJbqtR49XFQWfRqNrVsTA3lD6Xbgs1Uehagj1VmscN1J-Cfix-_PUlTayicNNbp03cAV42PKu1vpfHg_JkEbG5el-ocyKlNvCEkmmrFALgpDTt1fy655CKGKJsV7h1TwTcAa4-TK7nNH-dQqOxqJQNjBPvxY3YdN1H5-HRpzJgmEpv-YBSdOTz9WP5WsYCAxYWvyUe2IZgW8lSnmY7JM9kvfC8Xc6dRue8r6KBUzqmDM6DzzZtS1etNJbQkFeRg2s6XYjDo9a2kCXhOkv2kLG1dg7lTou2wsoIMV8niLcct04iz_z8rYRnPjzBQpO5hP2eEH5Unfo3bgSUcsGFwtN4KCwZYgNHBVFk8NlplDLBt5RNV_46ZaN5qDCOdCqF_pcOs469f1xl5V6u85ITOES_zFLP9n_bpX_1xZLjNcDBaBjtiPHCZzdj17JKWacCUPflvdfsOaTA6hpBv0Z4l03H3QHfjKxMx1aMHzKSoghmz2yAfWbc62b8pMSwUGeiMTo7vLnD8ZTHkxcQOlrEglOmZf82PPvHc1mIof-VqXbetM_jnp-fL0Y33j0T09DKFU7d8D12__nErUc3khNFsjKZO38KYfFnFVHEslq4tdLw9Mf-pD9LZqNpCwPO56rEHUR-cj--3C8FlSwOIJKia1XcTaPv5s1L1q8HJvDAJ-OhWFp-WJJilheh5oJq67eQ08ek_CR8SoZyubnDrGRJRpymv5De_u1fZVb8TqJh0npmPcxA7ATvmAR94');">
+                        <div class="overlay"></div>
+                        <div class="caption"> Стоматология <span>Лечение и протезирование</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Наблюдатель за появлением карточек
+        const galleryItems = document.querySelectorAll('.scroll-gallery-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    const delay = index * 150;
+                    setTimeout(() => {
+                        entry.target.classList.add('show');
+                    }, delay);
+                }
+            });
+        }, { threshold: 0.2 });
+        galleryItems.forEach(item => observer.observe(item));
+    </script>
+    <footer>
+        <div class="container">
+            <div class="footer-col">
+                <h4>О проекте</h4>
+                <p>Учебная верстка. Тема сайта задается студентом. Все страницы связаны.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p>Email: megaboroda@gmail.com</p>
+                <p>Телефон: +7 (123) 456-78-90</p>
+                <p>Адрес: ул. Мира 23, Северск</p>
+            </div>
+            <div class="footer-col">
+                <h4>Следите за нами</h4>
+                <div class="social-links">
+                    <a href="https://vk.com/bebra_snich228" class="social-icon">VK</a>
+                    <a href="t.me/Leshka_Mazafaker" class="social-icon">TG</a>
+                    <a href="#" class="social-icon">Max</a>
+                    <a href="#" class="social-icon">RT</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Все права защищены. Учебный проект</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

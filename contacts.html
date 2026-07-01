@@ -4,74 +4,508 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Контакты - HOSPITAL by CHUYKOV</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #448186 0%, #2c5a60 100%);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .logo-name {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #f1c40f, #e67e22);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 18px;
+            color: #ecf0f1;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo img {
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s;
+        }
+
+        .logo img:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo span {
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f1c40f, #e67e22);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        nav ul li a:hover::before {
+            width: 70%;
+        }
+
+        nav ul li a:hover {
+            color: #f1c40f;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a.active {
+            color: #f1c40f;
+            background: rgba(241, 196, 15, 0.1);
+        }
+
+        .btn, button, .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before, button::before, .button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn:hover::before, button:hover::before, .button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover, button:hover, .button:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #1f6d9e 100%);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn:active, button:active, .button:active {
+            transform: translateY(0);
+        }
+
+        section {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .contacts-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 25px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .contacts-info > div {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .contacts-info i {
+            font-size: 32px;
+            color: #3498db;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .contacts-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .contacts-info p {
+            color: #7f8c8d;
+        }
+
+        .map iframe {
+            width: 100%;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ========== СОЦИАЛЬНЫЕ СЕТИ ========== */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            background-color: #3d566e;
+            padding: 10px;
+            text-align: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+            color: #2c3e50;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+        }
+
+        /* ========== ПОДВАЛ ========== */
+        footer {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            padding: 50px 0 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f1c40f, #e67e22, #3498db);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #f1c40f, #e67e22);
+            border-radius: 2px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: #f1c40f;
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #95a5a6;
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: #f1c40f;
+            color: #2c3e50;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #2c3e50;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #2980b9, #1f6d9e);
+        }
+
+        /* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ========== */
+        @media (max-width: 480px) {
+            .social-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contacts-info {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .contacts-info > div {
+                min-width: auto;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+                white-space: normal;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
     </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - HOSPITAL by CHUYKOV</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div>
-            <link rel="stylesheet" href="style.css">
-            <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130">
-            <a href="index.html">HOSPITAL by CHUYKOV</a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="contacts.html" style="color: #e0b354; border-bottom: 2px solid #c9a03d;">Контакты</a></li>
-                    <li><a href="feedback.html">Обратная связь</a></li>
-                </ul>
-            </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%); padding: 20px 0;">
+    <div class="container">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <img src="лого_болька-no-bg-preview (carve.photos).png" width="100" height="130" alt="Логотип больницы" class="me-2">
+            <span class="logo-name">HOSPITAL by CHUYKOV</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Обратная связь</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="interactiveDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Интерактив
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="interactiveDropdown">
+                        <li><a class="dropdown-item" href="slider.html">Слайдер</a></li>
+                        <li><a class="dropdown-item" href="discount.html">Калькулятор</a></li>
+                        <li><a class="dropdown-item" href="flip-card.html">Flip-карточки</a></li>
+                        <li><a class="dropdown-item" href="scroll-gallery.html">Галерея</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Регистрация</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Вход</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Профиль</a></li>
+            </ul>
         </div>
-    </header>
+    </div>
+</nav>
 
     <main>
-        <section class="contacts-section">
+        <section>
             <div class="container">
-                <div class="contacts-title">
-                    <h1>📞 Свяжитесь с нами</h1>
-                    <p>Записывайтесь на приём с любой проблемой!</p>
-                </div>
-
-                <div class="contacts-grid">
-                    <div class="contact-card">
-                        <div class="contact-icon">📍</div>
+                <h1>Свяжитесь с нами</h1>
+                <p style="text-align: center; font-size: 18px;">Записывайтесь на приём с любой проблемой!</p>
+                
+                <div class="contacts-info">
+                    <div>
+                        <i>📍</i>
                         <h3>Адрес</h3>
-                        <p>г. Северск, ул. Мира 23<br></p>
+                        <p>г. Северск, ул. Мира 23</p>
                     </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">📞</div>
+                    <div>
+                        <i>📞</i>
                         <h3>Телефон</h3>
-                        <p><a href="tel:+71234567890">+7 (123) 456-78-90</a></p>
+                        <p>+7 (123) 456-78-90</p>
                     </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">✉️</div>
+                    <div>
+                        <i>✉️</i>
                         <h3>Email</h3>
-                        <p><a href="mailto:megaboroda@gmail.com">hospchuy@gmail.com</a></p>
+                        <p>hospchuy@gmail.com</p>
                     </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">🕐</div>
+                    <div>
+                        <i>🕐</i>
                         <h3>Режим работы</h3>
                         <p>Пн–Пт: 09:00 – 21:00<br>Сб–Вс: 10:00 – 20:00</p>
                     </div>
-
-                    <div class="contact-card">
-                        <div class="contact-icon">🌐</div>
+                    <div>
+                        <i>🌐</i>
                         <h3>Мы в соцсетях</h3>
                         <div class="social-links">
-                            <a href="#">VK</a>
-                            <a href="#">Max</a>
-                            <a href="#">RuTube</a>
+                            <a href="https://vk.com/bebra_snich228" class="social-icon">VK</a>
+                            <a href="t.me/Leshka_Mazafaker" class="social-icon">TG</a>
+                            <a href="#" class="social-icon">Max</a>
+                            <a href="#" class="social-icon">RT</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Карта Яндекс -->
-                <div class="map-container">
+                <div class="map">
                     <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&source=constructor" 
-                            allowfullscreen>
+                            height="400" allowfullscreen>
                     </iframe>
                 </div>
             </div>
@@ -79,25 +513,44 @@
     </main>
 
     <footer>
-        <div>
-            <div>
+        <div class="container">
+            <div class="footer-col">
                 <h4>О проекте</h4>
                 <p>Учебная верстка. Тема сайта задается студентом. Все страницы связаны.</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Контакты</h4>
                 <p>Email: megaboroda@gmail.com</p>
                 <p>Телефон: +7 (123) 456-78-90</p>
                 <p>Адрес: ул. Мира 23, Северск</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Следите за нами</h4>
-                <p>Соцсети: VK, Max, Rutube</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">VK</a>
+                    <a href="#" class="social-icon">TG</a>
+                    <a href="#" class="social-icon">Max</a>
+                    <a href="#" class="social-icon">RT</a>
+                </div>
             </div>
         </div>
-        <div>
+        <div class="copyright">
             <p>&copy; 2026 Все права защищены. Учебный проект</p>
         </div>
     </footer>
+
+    <script>
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (burgerBtn && navMenu) {
+            burgerBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
