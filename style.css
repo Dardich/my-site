@@ -1128,11 +1128,7 @@ html {
     }
 }
 
-/* ============================================================ */
-/* ========== НОВЫЕ ДОБАВЛЕННЫЕ СТИЛИ (исправленные) ========== */
-/* ============================================================ */
 
-/* ===== ШАГ 1: Базовые медиа-запросы (не ломают десктоп) ===== */
 @media (max-width: 1024px) {
     h1 { font-size: 30px; }
     h2 { font-size: 24px; }
@@ -1148,7 +1144,7 @@ html {
     .hero p { font-size: 16px; }
     .container { padding: 0 12px; }
 
-    /* Меню вертикальное (для бургера) */
+
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -1211,9 +1207,6 @@ html {
     form { padding: 10px; border-radius: 0; }
 }
 
-/* ===== ШАГ 2: Адаптация карточек (без ломки десктопа) ===== */
-/* На десктопе карточки остаются в колонку (как было) */
-/* На планшетах делаем изображение слева, текст справа */
 @media (min-width: 768px) and (max-width: 1199px) {
     .product-card {
         flex-direction: row;
@@ -1234,9 +1227,6 @@ html {
     .product-card .card-img { height: 140px; }
 }
 
-/* ===== ШАГ 3: Сетка каталога (сохраняем auto-fill на десктопе) ===== */
-/* Оставляем оригинальное определение .cards-grid и .catalog-grid без изменений,
-   но добавляем переопределение только для маленьких экранов */
 @media (max-width: 767px) {
     .cards-grid,
     .catalog-grid {
@@ -1244,17 +1234,12 @@ html {
         gap: 20px;
     }
 }
-/* Для планшетов можно сделать 2 колонки, но не обязательно – auto-fill справится */
 @media (min-width: 600px) and (max-width: 1023px) {
     .cards-grid,
     .catalog-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }
-/* На десктопе оставляем auto-fill – ничего не меняем */
-
-/* ===== ШАГ 4: Галерея – адаптив без ломки ===== */
-/* Оригинальные стили галереи уже есть, мы только добавляем переопределение для маленьких экранов */
 @media (max-width: 767px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -1265,7 +1250,6 @@ html {
         height: 150px !important;
         border-radius: 15px !important;
     }
-    /* Убираем сложные размеры для мобильных */
     .gallery-item-1,
     .gallery-item-3,
     .gallery-item-5 {
@@ -1273,11 +1257,7 @@ html {
         grid-row: span 1 !important;
     }
 }
-/* Планшеты – оставляем оригинальные стили (они уже есть в media 992px) */
 
-/* ===== ШАГ 5: Преимущества (features) – адаптив без ломки ===== */
-/* Оригинальные стили .features-grid используют auto-fit, оставляем */
-/* Добавляем только переопределение для маленьких экранов */
 @media (max-width: 767px) {
     .features-grid {
         grid-template-columns: 1fr !important;
@@ -1289,9 +1269,7 @@ html {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }
-/* На десктопе auto-fit сам решит, сколько колонок */
 
-/* ===== ШАГ 6: Для очень широких экранов (>1200px) ===== */
 @media (min-width: 1200px) {
     .container {
         max-width: 1100px;
@@ -1373,8 +1351,7 @@ html {
         display: flex;
     }
 }
-/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ НОВЫХ СТРАНИЦ ===== */
-/* Карточки форм */
+
 .card {
     background: #ffffff !important;
     border: none;
@@ -1712,7 +1689,7 @@ html {
     border-radius: 30px;
     text-decoration: none;
     margin-top: 15px;
-    transition: background 0.2s;
+    transition: "background 0.2s";
 }
 
 .flip-card-btn:hover {
